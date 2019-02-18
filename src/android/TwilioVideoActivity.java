@@ -109,14 +109,14 @@ public class TwilioVideoActivity extends AppCompatActivity {
         publishEvent(CallEvent.OPENED);
         setContentView(fakeR.getId("layout", "activity_video"));
 
-        primaryVideoView = (VideoView) findViewById(fakeR.getId.primary_video_view);
-        thumbnailVideoView = (VideoView) findViewById(fakeR.getId.thumbnail_video_view);
+        primaryVideoView = (VideoView) findViewById(fakeR.getId("id", "primary_video_view"));
+        thumbnailVideoView = (VideoView) findViewById(fakeR.getId("id", "thumbnail_video_view"));
 
-        connectActionFab = (FloatingActionButton) findViewById(fakeR.getId.connect_action_fab);
-        switchCameraActionFab = (FloatingActionButton) findViewById(fakeR.getId.switch_camera_action_fab);
-        localVideoActionFab = (FloatingActionButton) findViewById(fakeR.getId.local_video_action_fab);
-        muteActionFab = (FloatingActionButton) findViewById(fakeR.getId.mute_action_fab);
-        switchAudioActionFab = (FloatingActionButton) findViewById(fakeR.getId.switch_audio_action_fab);
+        connectActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "connect_action_fab"));
+        switchCameraActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "switch_camera_action_fab"));
+        localVideoActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "local_video_action_fab"));
+        muteActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "mute_action_fab"));
+        switchAudioActionFab = (FloatingActionButton) findViewById(fakeR.getId("id", "switch_audio_action_fab"));
 
         /*
          * Enable changing the volume using the up/down keys during a conversation
@@ -167,7 +167,7 @@ public class TwilioVideoActivity extends AppCompatActivity {
                 connectToRoom();
             } else {
                 Toast.makeText(this,
-                        R.string.permissions_needed,
+                        fakeR.getId("string", "permissions_needed"),
                         Toast.LENGTH_LONG).show();
             }
         }
@@ -264,7 +264,7 @@ public class TwilioVideoActivity extends AppCompatActivity {
                 ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.RECORD_AUDIO)) {
             Toast.makeText(this,
-                    R.string.permissions_needed,
+                    fakeR.getId("string", "permissions_needed"),
                     Toast.LENGTH_LONG).show();
         } else {
             ActivityCompat.requestPermissions(
@@ -756,7 +756,7 @@ public class TwilioVideoActivity extends AppCompatActivity {
 
                 }
                 int icon = audioManager.isSpeakerphoneOn() ?
-                        R.drawable.ic_phonelink_ring_white_24dp : R.drawable.ic_volume_headhphones_white_24dp;
+                        fakeR.getId("drawable", "ic_phonelink_ring_white_24dp") : fakeR.getId("drawable", "ic_volume_headhphones_white_24dp");
                 switchAudioActionFab.setImageDrawable(ContextCompat.getDrawable(
                         TwilioVideoActivity.this, icon));
             }
@@ -775,10 +775,10 @@ public class TwilioVideoActivity extends AppCompatActivity {
                     localVideoTrack.enable(enable);
                     int icon;
                     if (enable) {
-                        icon = R.drawable.ic_videocam_green_24px;
+                        icon = fakeR.getId("drawable", "ic_videocam_green_24px");
                         switchCameraActionFab.show();
                     } else {
-                        icon = R.drawable.ic_videocam_off_red_24px;
+                        icon = fakeR.getId("drawable", "ic_videocam_off_red_24px");
                         switchCameraActionFab.hide();
                     }
 
@@ -802,7 +802,7 @@ public class TwilioVideoActivity extends AppCompatActivity {
                     boolean enable = !localAudioTrack.isEnabled();
                     localAudioTrack.enable(enable);
                     int icon = enable ?
-                            R.drawable.ic_mic_green_24px : R.drawable.ic_mic_off_red_24px;
+                           fakeR.getId("drawable", "ic_mic_green_24px") : fakeR.getId("drawable", "ic_mic_off_red_24px");
                     muteActionFab.setImageDrawable(ContextCompat.getDrawable(
                             TwilioVideoActivity.this, icon));
                 }
