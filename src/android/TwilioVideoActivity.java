@@ -43,6 +43,7 @@ import com.twilio.video.VideoRenderer;
 import com.twilio.video.VideoTrack;
 import com.twilio.video.VideoView;
 
+import org.apache.cordova.twiliovideo.FakeR;
 import java.util.Collections;
 
 public class TwilioVideoActivity extends AppCompatActivity {
