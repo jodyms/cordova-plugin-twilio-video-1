@@ -47,7 +47,7 @@ import org.apache.cordova.twiliovideo.FakeR;
 import java.util.Collections;
 
 public class TwilioVideoActivity extends AppCompatActivity {
-    private static FakeR R;
+    private static FakeR fakeR;
     private static final int CAMERA_MIC_PERMISSION_REQUEST_CODE = 1;
     private static final String TAG = "TwilioVideoActivity";
 
@@ -105,17 +105,18 @@ public class TwilioVideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		fakeR = new FakeR(this);
         publishEvent(CallEvent.OPENED);
-        setContentView(R.layout.activity_video);
+        setContentView(fakeR.getId("layout", "activity_video"));
 
-        primaryVideoView = (VideoView) findViewById(R.id.primary_video_view);
-        thumbnailVideoView = (VideoView) findViewById(R.id.thumbnail_video_view);
+        primaryVideoView = (VideoView) findViewById(fakeR.getId.primary_video_view);
+        thumbnailVideoView = (VideoView) findViewById(fakeR.getId.thumbnail_video_view);
 
-        connectActionFab = (FloatingActionButton) findViewById(R.id.connect_action_fab);
-        switchCameraActionFab = (FloatingActionButton) findViewById(R.id.switch_camera_action_fab);
-        localVideoActionFab = (FloatingActionButton) findViewById(R.id.local_video_action_fab);
-        muteActionFab = (FloatingActionButton) findViewById(R.id.mute_action_fab);
-        switchAudioActionFab = (FloatingActionButton) findViewById(R.id.switch_audio_action_fab);
+        connectActionFab = (FloatingActionButton) findViewById(fakeR.getId.connect_action_fab);
+        switchCameraActionFab = (FloatingActionButton) findViewById(fakeR.getId.switch_camera_action_fab);
+        localVideoActionFab = (FloatingActionButton) findViewById(fakeR.getId.local_video_action_fab);
+        muteActionFab = (FloatingActionButton) findViewById(fakeR.getId.mute_action_fab);
+        switchAudioActionFab = (FloatingActionButton) findViewById(fakeR.getId.switch_audio_action_fab);
 
         /*
          * Enable changing the volume using the up/down keys during a conversation
