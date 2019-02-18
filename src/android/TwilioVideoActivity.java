@@ -46,7 +46,7 @@ import com.twilio.video.VideoView;
 import java.util.Collections;
 
 public class TwilioVideoActivity extends AppCompatActivity {
-
+    private static FakeR R;
     private static final int CAMERA_MIC_PERMISSION_REQUEST_CODE = 1;
     private static final String TAG = "TwilioVideoActivity";
 
