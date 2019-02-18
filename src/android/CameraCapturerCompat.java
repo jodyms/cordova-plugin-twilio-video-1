@@ -92,10 +92,10 @@ public class CameraCapturerCompat {
         Camera2Enumerator camera2Enumerator = new Camera2Enumerator(context);
         for (String cameraId : camera2Enumerator.getDeviceNames()) {
             if (camera2Enumerator.isFrontFacing(cameraId)) {
-                frontCameraPair = new Pair<>(CameraCapturer.CameraSource.FRONT_CAMERA, cameraId);
+                frontCameraPair = new Pair<CameraCapturer.CameraSource, String>(CameraCapturer.CameraSource.FRONT_CAMERA, cameraId);
             }
             if (camera2Enumerator.isBackFacing(cameraId)) {
-                backCameraPair = new Pair<>(CameraCapturer.CameraSource.BACK_CAMERA, cameraId);
+                backCameraPair = new Pair<CameraCapturer.CameraSource, String>(CameraCapturer.CameraSource.BACK_CAMERA, cameraId);
             }
         }
     }
