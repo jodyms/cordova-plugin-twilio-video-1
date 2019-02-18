@@ -1,5 +1,4 @@
 package org.apache.cordova.twiliovideo;
-IMPORT R class HERE
 
 import android.Manifest;
 import android.app.AlertDialog;
